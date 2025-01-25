@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../styles/index.css'; // Ensure this import is present
 
 const FacultyDashboard = () => {
     const [attendanceRecords, setAttendanceRecords] = useState([]);
@@ -34,30 +35,38 @@ const FacultyDashboard = () => {
     };
 
     return (
-        <div>
+        <div className="faculty-dashboard">
             <h1>Faculty Dashboard</h1>
             <div>
                 <h2>Mark Attendance</h2>
-                <input
-                    type="text"
-                    placeholder="User ID"
-                    value={userId}
-                    onChange={(e) => setUserId(e.target.value)}
-                />
-                <input
-                    type="date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                />
-                <select
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                >
-                    <option value="">Select Status</option>
-                    <option value="Present">Present</option>
-                    <option value="Absent">Absent</option>
-                </select>
-                <button onClick={handleMarkAttendance}>Mark Attendance</button>
+                <form>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Student USN"
+                            value={userId}
+                            onChange={(e) => setUserId(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="date"
+                            value={date}
+                            onChange={(e) => setDate(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <select
+                            value={status}
+                            onChange={(e) => setStatus(e.target.value)}
+                        >
+                            <option value="">Select Status</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                        </select>
+                    </div>
+                    <button onClick={handleMarkAttendance}>Mark Attendance</button>
+                </form>
             </div>
             <div>
                 <h2>Attendance Records</h2>
