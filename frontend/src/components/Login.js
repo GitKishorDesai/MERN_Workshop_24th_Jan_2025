@@ -30,7 +30,7 @@ const Login = ({ onLogin }) => {
 
     return (
         <div>
-            <h2>Login</h2>
+            <h2>Login to the Attendance Tracker</h2>
             {error && <p>{error}</p>}
             <form onSubmit={handleLogin}>
                 <div>
